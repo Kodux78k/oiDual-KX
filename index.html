@@ -434,9 +434,14 @@
         <button id="crystalBtn" class="control-btn" title="Cristalizados">
           <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l2.9 6.3L21 10l-5 3.6L17.8 21 12 17.7 6.2 21 7 13.6 2 10l6.1-1.7L12 2z"></path></svg>
         </button>
-        <button id="settingsBtn" class="control-btn" title="Configurações">
-          <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        </button>
+       <!--
+<button id="settingsBtn" class="control-btn" title="Configurações">
+  <svg viewBox="0 0 24 24" width="20" height="20">
+    <circle cx="12" cy="12" r="3"></circle>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+  </svg>
+</button>
+-->
       </div>
       <div class="pagination">
         <button data-action="prev">⟵</button>
@@ -454,61 +459,74 @@
     </button>
   </div>
 
-  <div id="settingsModal" class="modal">
-    <div class="box">
-      <h3>Configuração Neural</h3>
-      <div class="col">
-        <div class="input-group">
-          <label>OpenRouter API Key (SK)</label>
-          <input type="password" id="apiKeyInput" placeholder="sk-or-..." autocomplete="off">
-        </div>
-        <div class="input-group">
-          <label>Modelo AI</label>
-          <input type="text" id="modelInput" placeholder="ex: meta-llama/llama-4-maverick:free">
-        </div>
-        <div class="settings-actions">
-          <button id="cancelSettings" class="btn btn-sec">Cancelar</button>
-          <button id="saveSettings" class="btn btn-prim">Salvar Conexão</button>
-        </div>
+<div id="neuralPanel" class="modal panel">
+  <div class="box">
+    <h3>Configuração Neural</h3>
+
+    <!-- 🔐 CONEXÃO -->
+    <div class="section">
+      <h4>Conexão</h4>
+
+      <div class="input-group">
+        <label>OpenRouter API Key (SK)</label>
+        <input type="password" id="apiKeyInput" placeholder="sk-or-..." autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <label>Modelo AI</label>
+        <input type="text" id="modelInput" placeholder="ex: meta-llama/llama-4-maverick:free">
       </div>
     </div>
-  </div>
 
-  <div id="togglePanel" class="panel">
-    <div class="box">
-      <h3>Painel Infodose</h3>
+    <!-- 👤 IDENTIDADE -->
+    <div class="section">
+      <h4>Identidade</h4>
+
       <div class="row">
-        <div style="flex:1" class="col">
+        <div class="col">
           <label class="small">Usuário</label>
           <input type="text" id="userNameInput" placeholder="Seu nome...">
         </div>
-        <div style="flex:1" class="col">
+        <div class="col">
           <label class="small">Nome da Infodose</label>
           <input type="text" id="infodoseNameInput" placeholder="Ex: World System — Alpha">
         </div>
       </div>
-      <div style="margin-top:10px" class="col">
-        <label class="small">Treinamento (World System) — Upload / Export</label>
-        <input type="file" id="trainingUpload" accept=".txt">
-        <div style="display:flex; gap:8px; margin-top:8px;">
-          <button id="importTrainingBtn" class="btn btn-sec">Importar (ler)</button>
-          <button id="exportTrainingBtn" class="btn btn-prim">Exportar treino</button>
-        </div>
-        <div id="trainingFileName" class="small" style="margin-top:6px;color:#9bd">Nenhum arquivo carregado</div>
+    </div>
+
+    <!-- 🌍 TREINAMENTO -->
+    <div class="section">
+      <h4>World System</h4>
+
+      <label class="small">Treinamento — Upload / Export</label>
+      <input type="file" id="trainingUpload" accept=".txt">
+
+      <div class="actions-row">
+        <button id="importTrainingBtn" class="btn btn-sec">Importar</button>
+        <button id="exportTrainingBtn" class="btn btn-prim">Exportar</button>
       </div>
-      <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
-        <label class="small" style="flex:1">Infodose ativa</label>
-        <input type="checkbox" id="assistantActiveCheckbox">
-        <label class="small" style="flex:1">Treinamento ativo</label>
-        <input type="checkbox" id="trainingActiveCheckbox">
-      </div>
-      <div style="margin-top:12px; display:flex; gap:8px;">
-        <button id="savePanelBtn" class="btn btn-prim">Salvar Painel</button>
-        <button id="closePanelBtn" class="btn btn-sec">Fechar</button>
+
+      <div id="trainingFileName" class="small muted">
+        Nenhum arquivo carregado
       </div>
     </div>
-  </div>
 
+    <!-- ⚙️ ESTADO -->
+    <div class="section toggles">
+      <label class="small">Infodose ativa</label>
+      <input type="checkbox" id="assistantActiveCheckbox">
+
+      <label class="small">Treinamento ativo</label>
+      <input type="checkbox" id="trainingActiveCheckbox">
+    </div>
+
+    <!-- 💾 AÇÕES -->
+    <div class="settings-actions">
+      <button id="closeNeuralPanel" class="btn btn-sec">Cancelar</button>
+      <button id="saveNeuralPanel" class="btn btn-prim">Salvar Tudo</button>
+    </div>
+  </div>
+</div>
   <div id="crystalModal" class="modal">
     <div class="box">
       <h3>Cristalizados</h3>
@@ -883,7 +901,7 @@
 
     // Configs (Synced with Card)
     let apiKey = localStorage.getItem('di_apiKey') || '';
-    let modelName = localStorage.getItem('di_modelName') || 'meta-llama/llama-4-maverick:free';
+    let modelName = localStorage.getItem('di_modelName') || 'openai/gpt-oss-120b:free';
     let userName = localStorage.getItem('di_userName') || '';
     let infodoseName = localStorage.getItem('di_infodoseName') || '';
     const CRYSTAL_KEY = 'di_cristalizados';
@@ -1237,19 +1255,41 @@
     });
 
     // Mantra
-    const mantraBtn = document.getElementById('mantra-toggle');
-    const mantraText = document.getElementById('mantra-text');
-    let mantraCollapsed = false;
-    mantraBtn.addEventListener('click', () => {
-      mantraCollapsed = !mantraCollapsed;
-      if (mantraCollapsed) {
-        mantraBtn.classList.add('collapsed'); document.body.classList.add('zen-mode');
-        mantraText.classList.add('fade-out'); setTimeout(()=>{ mantraText.innerHTML = 'USE · TRANSFORME · DEVOLVA'; mantraText.classList.remove('fade-out'); },300);
-      } else {
-        mantraBtn.classList.remove('collapsed'); document.body.classList.remove('zen-mode');
-        mantraText.classList.add('fade-out'); setTimeout(()=>{ mantraText.innerHTML = 'Do seu jeito. <strong>Sempre</strong> único. <strong>Sempre</strong> seu.'; mantraText.classList.remove('fade-out'); },300);
-      }
-    });
+const mantraBtn = document.getElementById('mantra-toggle');
+const mantraText = document.getElementById('mantra-text');
+
+// estado inicial: FECHADO
+let mantraCollapsed = true;
+
+// aplica estado inicial no DOM
+mantraBtn.classList.add('collapsed');
+document.body.classList.add('zen-mode');
+mantraText.innerHTML = 'USE · TRANSFORME · DEVOLVA';
+
+mantraBtn.addEventListener('click', () => {
+  mantraCollapsed = !mantraCollapsed;
+
+  if (mantraCollapsed) {
+    mantraBtn.classList.add('collapsed');
+    document.body.classList.add('zen-mode');
+
+    mantraText.classList.add('fade-out');
+    setTimeout(() => {
+      mantraText.innerHTML = 'USE · TRANSFORME · DEVOLVA';
+      mantraText.classList.remove('fade-out');
+    }, 300);
+
+  } else {
+    mantraBtn.classList.remove('collapsed');
+    document.body.classList.remove('zen-mode');
+
+    mantraText.classList.add('fade-out');
+    setTimeout(() => {
+      mantraText.innerHTML = 'Do seu jeito. <strong>Sempre</strong> único. <strong>Sempre</strong> seu.';
+      mantraText.classList.remove('fade-out');
+    }, 300);
+  }
+});
   </script>
 
 <script>
